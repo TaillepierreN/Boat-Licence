@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FloatManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    float randBobbing;
     void Start()
     {
         
@@ -14,6 +14,8 @@ public class FloatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x,Mathf.Sin(1),transform.position.z),2*Time.deltaTime);
+        randBobbing = UnityEngine.Random.Range(-0.7f,-0.1f);
+        float newY = Mathf.Sin(Time.time * 1.5f) * randBobbing + transform.position.y;
+        transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x,newY,transform.position.z),2*Time.deltaTime);
     }
 }
