@@ -16,10 +16,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Objectifs.objectivesCompleted + Objectifs.objectivesMissed == 7)
-        {
-            Debug.Log("GameOver");
-        }
+
     }
     public void StartGame()
     {
