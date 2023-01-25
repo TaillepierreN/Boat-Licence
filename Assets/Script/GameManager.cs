@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] NewBehaviourScript Objectifs; 
+    [SerializeField] NewBehaviourScript Objectifs;
     // Start is called before the first frame update
     void Start()
     {
-        Objectifs.objectivesCompleted =0;
-        Objectifs.objectivesMissed =0;
+        Objectifs.objectivesCompleted = 0;
+        Objectifs.objectivesMissed = 0;
     }
 
     // Update is called once per frame
@@ -26,5 +26,13 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (Objectifs.objectivesCompleted + Objectifs.objectivesMissed == 7)
+        {
+
+            BackToMainMenu();
+        }
     }
 }
