@@ -6,6 +6,10 @@ using UnityEngine;
 public class FloatManager : MonoBehaviour
 {
     float randBobbing;
+    [SerializeField]float rangeMin;
+    [SerializeField]float rangeMax;
+    [SerializeField]float frequency;
+    [SerializeField]float speed;
     void Start()
     {
         
@@ -14,8 +18,8 @@ public class FloatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        randBobbing = UnityEngine.Random.Range(-0.7f,-0.1f);
-        float newY = Mathf.Sin(Time.time * 1.5f) * randBobbing + transform.position.y;
-        transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x,newY,transform.position.z),2*Time.deltaTime);
+        randBobbing = UnityEngine.Random.Range(rangeMin,rangeMax);
+        float newY = Mathf.Sin(Time.time * frequency) * randBobbing + transform.position.y;
+        transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x,newY,transform.position.z),speed*Time.deltaTime);
     }
 }

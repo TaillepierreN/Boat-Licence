@@ -5,16 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] NewBehaviourScript Objectifs; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Objectifs.objectivesCompleted =0;
+        Objectifs.objectivesMissed =0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Objectifs.objectivesCompleted + Objectifs.objectivesMissed == 7)
+        {
+            Debug.Log("GameOver");
+        }
     }
     public void StartGame()
     {
